@@ -6,3 +6,9 @@ test("ping", async () => {
     const body = await resp.text()
     expect(body).toBe("pong")
 })
+
+test("404", async () => {
+    const resp = await fetch(`${baseUrl}/404`)
+    expect(resp.status).toBe(404)
+})
+
