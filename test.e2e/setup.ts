@@ -1,9 +1,15 @@
 import {afterAll, beforeAll} from "bun:test";
 
-beforeAll(() => {
-    console.log("Global test setup");
-});
 
-afterAll(() => {
-    console.log("Global test teardown");
-});
+let proc: Bun.Subprocess
+
+beforeAll(async () => {
+    proc = Bun.spawn(["bun", "run", "start"])
+    console.log("server started")
+})
+
+afterAll(async () => {
+    proc.kill("SIGTERM")
+    await proc.exited
+    console.log("server stopped")
+})
