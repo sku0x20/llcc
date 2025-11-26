@@ -6,6 +6,7 @@ let proc: Bun.Subprocess
 beforeAll(async () => {
     proc = Bun.spawn(["bun", "run", "start"])
     console.log("server started")
+    await new Promise(resolve => setTimeout(resolve, 500))
 })
 
 afterAll(async () => {

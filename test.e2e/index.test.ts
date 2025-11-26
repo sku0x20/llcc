@@ -1,5 +1,7 @@
 import {expect, test} from "bun:test"
 
-test("spike", async () => {
-    expect("hi").toBe("hi")
+test("ping", async () => {
+    const resp = await fetch("http://localhost:3000/ping")
+    const body = await resp.text()
+    expect(body).toBe("pong")
 })
