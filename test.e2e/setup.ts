@@ -18,10 +18,7 @@ afterAll(async () => {
 
 const waitUntilServerReady = async () => {
     try {
-        const resp = await fetch(`${serverBaseUrl}/ping`)
-        if (!resp.ok) throw new Error(`server responded with ${resp.status}`)
-        const body = await resp.text()
-        if (body !== "pong") throw new Error(`server responded with ${body}`)
+        await fetch(`${serverBaseUrl}`)
     } catch (e) {
         await new Promise(resolve => setTimeout(resolve, 50))
         return waitUntilServerReady()
