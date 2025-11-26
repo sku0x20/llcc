@@ -2,7 +2,7 @@ import {afterAll, beforeAll} from "bun:test";
 
 
 let proc: Bun.Subprocess
-const serverBaseUrl = "http://localhost:3000"
+export const baseUrl = "http://localhost:3000"
 
 beforeAll(async () => {
     proc = Bun.spawn(["bun", "run", "start"])
@@ -18,7 +18,7 @@ afterAll(async () => {
 
 const waitUntilServerReady = async () => {
     try {
-        await fetch(`${serverBaseUrl}`)
+        await fetch(`${baseUrl}`)
     } catch (e) {
         await new Promise(resolve => setTimeout(resolve, 50))
         return waitUntilServerReady()
