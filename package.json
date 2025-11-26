@@ -6,7 +6,7 @@
   "scripts": {
     "start": "bun run src/index.ts",
     "dev": "bun --hot src/index.ts",
-    "test:e2e": "bun test test.e2e"
+    "test:e2e": "bun test --preload ./test.e2e/setup.ts test.e2e"
   },
   "devDependencies": {
     "@types/bun": "latest"
