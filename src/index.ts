@@ -5,12 +5,12 @@ Bun.serve({
         "/ping": new Response("pong"),
         "/cc": (req) => {
             const url = new URL(req.url).searchParams
-            const lat = parseFloat(url.get("lat")!)
-            const lon = parseFloat(url.get("lon")!)
+            const lat = Number(url.get("lat")!)
+            const lon = Number(url.get("lon")!)
             if (isNaN(lat) || isNaN(lon)) {
                 return new Response("invalid params", {status: 400})
             }
-            const code = findCountry(lat, lon)
+            const code = findCountry(Number(lat.toFixed(4)), Number(lon.toFixed(4)))
             const resp = {
                 "cc": code
             }
