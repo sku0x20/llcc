@@ -13,5 +13,8 @@
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@turf/point-to-polygon-distance": "^7.3.1"
   }
 }
