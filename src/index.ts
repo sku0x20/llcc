@@ -1,4 +1,4 @@
-import {findCountry} from "./countryFinder.ts";
+import {findCountryCode} from "./cc_locator.ts";
 
 Bun.serve({
     routes: {
@@ -10,7 +10,7 @@ Bun.serve({
             if (isNaN(lat) || isNaN(lon)) {
                 return new Response("invalid params", {status: 400})
             }
-            const code = findCountry(Number(lat.toFixed(4)), Number(lon.toFixed(4)))
+            const code = findCountryCode(Number(lat.toFixed(4)), Number(lon.toFixed(4)))
             const resp = {
                 "cc": code
             }

@@ -7,7 +7,7 @@ const countriesGeoJson = await Bun.file("data/ne_50m_admin_0_countries.json").js
 //     console.log(`${feature.properties["ISO_A2_EH"]} - ${feature.properties["NAME"]}`)
 // }
 
-export const findCountry = (lat: number, lon: number): string => {
+export const findCountryCode = (lat: number, lon: number): string => {
     const point: GeoJSON.Position = [lon, lat]
     const candidates = countriesGeoJson
 
